@@ -1,5 +1,7 @@
 package com.lauri.oliolutemon;
 
+import com.lauri.oliolutemon.monsters.Lutemon;
+
 import java.util.ArrayList;
 
 public class Storage {
