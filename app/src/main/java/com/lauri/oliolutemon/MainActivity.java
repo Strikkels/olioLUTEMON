@@ -1,6 +1,8 @@
 package com.lauri.oliolutemon;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -47,5 +49,11 @@ public class MainActivity extends AppCompatActivity {
                 tabLayout.getTabAt(position).select();
             }
         });
+
     }
+    public void switchToCreateLutemon(View view){
+        Intent intent = new Intent(this, CreateLutemonActivity.class);
+        startActivity(intent);
+    }
+
 }
