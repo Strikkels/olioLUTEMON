@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class LutemonStorage {
     private static LutemonStorage lutemonStorage = null;
-    private ArrayList<Lutemon> lutemons; //Voisi kokeilla myös Hashmappiä
+    private ArrayList<Lutemon> lutemons = new ArrayList<>(); //Voisi kokeilla myös Hashmappiä
     private LutemonStorage(){
     }
     public static LutemonStorage getInstance(){
@@ -21,6 +21,7 @@ public class LutemonStorage {
     }
     public void addLutemon(Lutemon lutemon){
         lutemons.add(lutemon);
+        System.out.println("Lisätty olio: " + "id:" + lutemon.getId());
     }
     public void removeLutemon(int lutemonId){
         int i = 0;

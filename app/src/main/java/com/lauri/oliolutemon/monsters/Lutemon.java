@@ -8,8 +8,10 @@ public class Lutemon {
     protected int experience;
     protected int health;
     protected int maxHealth;
+    protected String type;
+    protected int img;
     protected int id;
-    protected static int idCounter = 0;
+    protected static int idCounter;
 
     public Lutemon(String name,int attack, int defense, int experience, int health, int maxHealth, int id){
         this.name = name;
@@ -18,7 +20,8 @@ public class Lutemon {
     }
     public Lutemon (String name){
         this.name = name;
-
+        this.id = idCounter;
+        idCounter++;
     }
     public void defense(Lutemon lutemon){
 
@@ -60,5 +63,12 @@ public class Lutemon {
 
     public int getId() {
         return id;
+    }
+    public String getType() {
+        return type;
+    }
+
+    public int getImg() {
+        return img;
     }
 }
