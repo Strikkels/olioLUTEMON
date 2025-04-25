@@ -1,7 +1,11 @@
 package com.lauri.oliolutemon.monsters;
 
+import com.lauri.oliolutemon.R;
+
 public class Orange extends Lutemon{
-    public Orange(String name,int attack, int defense, int experience, int health, int maxHealth) {
-        super(name,8,1,experience, health, 17,2);
+    public Orange(String name) {
+        super(name);
+        img = R.drawable.orange;
+        type = "Orange";
     }
 }

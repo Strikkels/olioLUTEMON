@@ -11,10 +11,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.lauri.oliolutemon.CreateLutemonActivity;
 import com.lauri.oliolutemon.LutemonStorage;
-import com.lauri.oliolutemon.LutemonsListAdapter;
+import com.lauri.oliolutemon.LutemonsHomeListAdapter;
 import com.lauri.oliolutemon.R;
 
 /**
@@ -40,12 +41,18 @@ public class HomeFragment extends Fragment {
         RecyclerView recyclerView = view.findViewById(R.id.LutemonsRV);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setAdapter(new LutemonsListAdapter(LutemonStorage.getInstance().getLutemons()));
+        recyclerView.setAdapter(new LutemonsHomeListAdapter(getContext(),LutemonStorage.getInstance().getHome().getLutemons()));
 
         addLutemonBtn.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(), CreateLutemonActivity.class);
             startActivity(intent);
         });
+
+        addLutemonBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), CreateLutemonActivity.class);
+            startActivity(intent);
+        });
+
 
         return view;
     }

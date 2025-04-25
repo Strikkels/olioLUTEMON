@@ -2,11 +2,16 @@ package com.lauri.oliolutemon.location;
 
 import com.lauri.oliolutemon.monsters.Lutemon;
 
+import java.util.ArrayList;
+
 public class LutemonLocation {
-    private String name;
-    private Lutemon lutemons;
-    public LutemonLocation(String name, Lutemon lutemons) {
-        this.lutemons = lutemons;
-        this.name = name;
+    protected ArrayList<Lutemon> lutemons = new ArrayList<>();
+    protected String name;
+    public LutemonLocation() {
     }
+    public ArrayList<Lutemon> getLutemons() {
+        return lutemons;
+    }
+
+
 }

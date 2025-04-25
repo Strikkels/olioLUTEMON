@@ -1,4 +1,11 @@
 package com.lauri.oliolutemon.monsters;
 
-public class White {
+import com.lauri.oliolutemon.R;
+
+public class White extends Lutemon{
+    public White(String name) {
+        super(name);
+        img = R.drawable.white;
+        type = "White";
+    }
 }

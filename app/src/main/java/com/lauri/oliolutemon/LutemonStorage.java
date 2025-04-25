@@ -1,12 +1,18 @@
 package com.lauri.oliolutemon;
 
+import com.lauri.oliolutemon.location.BattleField;
+import com.lauri.oliolutemon.location.Home;
+import com.lauri.oliolutemon.location.LutemonLocation;
+import com.lauri.oliolutemon.location.TrainingArea;
 import com.lauri.oliolutemon.monsters.Lutemon;
 
 import java.util.ArrayList;
 
 public class LutemonStorage {
     private static LutemonStorage lutemonStorage = null;
-    private ArrayList<Lutemon> lutemons = new ArrayList<>(); //Voisi kokeilla myös Hashmappiä
+    private Home home = new Home();
+    private BattleField battleField = new BattleField();
+    private TrainingArea trainingArea = new TrainingArea();
     private LutemonStorage(){
     }
     public static LutemonStorage getInstance(){
@@ -15,22 +21,15 @@ public class LutemonStorage {
         }
         return lutemonStorage;
     }
+    public Home getHome(){
+        return home;
+    }
 
-    public ArrayList<Lutemon> getLutemons() {
-        return lutemons;
+    public BattleField getBattleField() {
+        return battleField;
     }
-    public void addLutemon(Lutemon lutemon){
-        lutemons.add(lutemon);
-        System.out.println("Lisätty olio: " + "id:" + lutemon.getId());
-    }
-    public void removeLutemon(int lutemonId){
-        int i = 0;
-        for (Lutemon l : lutemons){
-            if(l.getId() == (lutemonId)){
-                break;
-            }
-            i++;
-        }
-        lutemons.remove(i);
+
+    public TrainingArea getTrainingArea() {
+        return trainingArea;
     }
 }

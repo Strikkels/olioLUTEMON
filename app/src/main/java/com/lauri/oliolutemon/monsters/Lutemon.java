@@ -71,4 +71,10 @@ public class Lutemon {
     public int getImg() {
         return img;
     }
+    public void levelUp(int experience) {
+        this.experience += experience;
+        this.maxHealth += experience;
+        this.defense += experience;
+        this.attack += experience;
+    }
 }

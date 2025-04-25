@@ -11,22 +11,23 @@ import com.lauri.oliolutemon.monsters.Lutemon;
 
 import java.util.ArrayList;
 
-public class LutemonsListAdapter extends RecyclerView.Adapter<LutemonViewHolder> {
+public class LutemonsTrainingListAdapter extends RecyclerView.Adapter<LutemonHomeViewHolder> {
     private Context context;
     private ArrayList<Lutemon> lutemons = new ArrayList<>();
 
-    public LutemonsListAdapter(ArrayList<Lutemon> lutemons){
+    public LutemonsTrainingListAdapter(Context context, ArrayList<Lutemon> lutemons){
         this.lutemons = lutemons;
+        this.context = context;
     }
 
     @NonNull
     @Override
-    public LutemonViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new LutemonViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.lutemon_view, parent, false));
+    public LutemonHomeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return new LutemonHomeViewHolder(LayoutInflater.from(context).inflate(R.layout.lutemon_training_view, parent, false));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull LutemonViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull LutemonHomeViewHolder holder, int position) {
         holder.lutemonNameTxt.setText(lutemons.get(position).getName());
         holder.lutemonTypeTxt.setText(lutemons.get(position).getType());
         holder.lutemonImg.setImageResource(lutemons.get(position).getImg());
@@ -34,6 +35,6 @@ public class LutemonsListAdapter extends RecyclerView.Adapter<LutemonViewHolder>
 
     @Override
     public int getItemCount() {
-        return LutemonStorage.getInstance().getLutemons().size();
+        return LutemonStorage.getInstance().getTrainingArea().getLutemons().size();
     }
 }

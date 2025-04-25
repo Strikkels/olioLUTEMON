@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/training"
+        android:title="Send to training"/>
+    <item
+        android:id="@+id/battling"
+        android:title="Send to battle" />
+    <item
+        android:id="@+id/kill"
+        android:title="Eliminate" />
+</menu>

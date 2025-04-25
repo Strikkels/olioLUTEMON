@@ -12,7 +12,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.lauri.oliolutemon.monsters.Black;
+import com.lauri.oliolutemon.monsters.Green;
 import com.lauri.oliolutemon.monsters.Lutemon;
+import com.lauri.oliolutemon.monsters.Orange;
+import com.lauri.oliolutemon.monsters.Pink;
+import com.lauri.oliolutemon.monsters.White;
 
 public class CreateLutemonActivity extends AppCompatActivity {
     private EditText lutemonName;
@@ -28,30 +33,30 @@ public class CreateLutemonActivity extends AppCompatActivity {
 
         RecyclerView recyclerView = findViewById(R.id.LutemonTestRV);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new LutemonsListAdapter(LutemonStorage.getInstance().getLutemons()));
+        recyclerView.setAdapter(new LutemonsHomeListAdapter(getApplicationContext(), LutemonStorage.getInstance().getHome().getLutemons()));
     }
     public void createLutemon(View view){
         String name = lutemonName.getText().toString();
         String type = null;
+        Lutemon lutemon = null;
 
         int checkedRadioButtonId = lutemonType.getCheckedRadioButtonId();
         if (checkedRadioButtonId == R.id.LutemonBlackBtn){
-            type = "black";
+            lutemon = new Black(name);
         } else if (checkedRadioButtonId == R.id.LutemonGreenBtn) {
-            type = "green";
+            lutemon = new Green(name);
         } else if (checkedRadioButtonId == R.id.LutemonOrangeBtn) {
-            type = "orange";
+            lutemon = new Orange(name);
         } else if (checkedRadioButtonId == R.id.LutemonPinkBtn) {
-            type = "pink";
+            lutemon = new Pink(name);
         } else if (checkedRadioButtonId == R.id.LutemonWhiteBtn) {
-            type = "white";
+            lutemon = new White(name);
         } else{
             Toast.makeText(this,"Choose type", Toast.LENGTH_SHORT).show();
             return;
         }
         System.out.println("nimi: " + name + " tyyppi: " + type);
-        Lutemon lutemon = new Lutemon(name);
-        LutemonStorage.getInstance().addLutemon(lutemon);
+        LutemonStorage.getInstance().getHome().createLutemon(lutemon);
 
     }
 
