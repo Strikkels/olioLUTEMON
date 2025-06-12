@@ -21,4 +21,8 @@ public class Home extends LutemonLocation{
         }
         lutemons.remove(i);
     }
+
+    public void recieveLutemon(Lutemon lutemon){
+        lutemons.add(lutemon);
+    }
 }

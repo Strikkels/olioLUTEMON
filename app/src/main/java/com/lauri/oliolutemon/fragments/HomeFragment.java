@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,6 +18,7 @@ import com.lauri.oliolutemon.CreateLutemonActivity;
 import com.lauri.oliolutemon.LutemonStorage;
 import com.lauri.oliolutemon.LutemonsHomeListAdapter;
 import com.lauri.oliolutemon.R;
+import com.lauri.oliolutemon.SharedViewModel;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -37,16 +39,10 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
         Button addLutemonBtn = view.findViewById(R.id.AddLutemonBtn);
-
         RecyclerView recyclerView = view.findViewById(R.id.LutemonsRV);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(new LutemonsHomeListAdapter(getContext(),LutemonStorage.getInstance().getHome().getLutemons()));
-
-        addLutemonBtn.setOnClickListener(v -> {
-            Intent intent = new Intent(getActivity(), CreateLutemonActivity.class);
-            startActivity(intent);
-        });
 
         addLutemonBtn.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(), CreateLutemonActivity.class);

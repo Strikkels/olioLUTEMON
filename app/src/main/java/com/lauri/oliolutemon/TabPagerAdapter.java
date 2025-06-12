@@ -1,5 +1,7 @@
 package com.lauri.oliolutemon;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;

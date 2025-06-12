@@ -1,6 +1,7 @@
 package com.lauri.oliolutemon;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -35,7 +36,8 @@ public class LutemonsHomeListAdapter extends RecyclerView.Adapter<LutemonHomeVie
 
         holder.lutemonSendTrainingImg.setOnClickListener(v -> {
             int pos = holder.getAdapterPosition();
-            LutemonStorage.getInstance().getTrainingArea().train(lutemons.get(pos).getId());
+            LutemonStorage.getInstance().getTrainingArea().train(lutemons.get(pos));
+            LutemonStorage.getInstance().getHome().removeLutemon(lutemons.get(pos).getId());
             notifyItemRemoved(pos);
         });
     }

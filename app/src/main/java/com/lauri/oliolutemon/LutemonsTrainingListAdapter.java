@@ -11,7 +11,7 @@ import com.lauri.oliolutemon.monsters.Lutemon;
 
 import java.util.ArrayList;
 
-public class LutemonsTrainingListAdapter extends RecyclerView.Adapter<LutemonHomeViewHolder> {
+public class LutemonsTrainingListAdapter extends RecyclerView.Adapter<LutemonTrainingViewHolder> {
     private Context context;
     private ArrayList<Lutemon> lutemons = new ArrayList<>();
 
@@ -22,15 +22,22 @@ public class LutemonsTrainingListAdapter extends RecyclerView.Adapter<LutemonHom
 
     @NonNull
     @Override
-    public LutemonHomeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new LutemonHomeViewHolder(LayoutInflater.from(context).inflate(R.layout.lutemon_training_view, parent, false));
+    public LutemonTrainingViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return new LutemonTrainingViewHolder(LayoutInflater.from(context).inflate(R.layout.lutemon_training_view, parent, false));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull LutemonHomeViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull LutemonTrainingViewHolder holder, int position) {
         holder.lutemonNameTxt.setText(lutemons.get(position).getName());
         holder.lutemonTypeTxt.setText(lutemons.get(position).getType());
         holder.lutemonImg.setImageResource(lutemons.get(position).getImg());
+
+        holder.sendHomeBtn.setOnClickListener(v -> {
+            int pos = holder.getAdapterPosition();
+            lutemons = LutemonStorage.getInstance().getTrainingArea().sendHome(lutemons.get(pos).getId());
+            notifyItemRemoved(pos);
+
+        });
     }
 
     @Override

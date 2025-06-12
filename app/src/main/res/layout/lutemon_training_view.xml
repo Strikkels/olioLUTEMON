@@ -12,9 +12,11 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/LutemonImg"
+            android:id="@+id/LutemonTrainingImg"
             android:layout_width="80dp"
             android:layout_height="80dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_launcher_foreground" />
 
         <LinearLayout
@@ -23,22 +25,22 @@
             android:layout_height="match_parent"
             android:layout_marginStart="8dp"
             android:orientation="vertical"
-            app:layout_constraintStart_toEndOf="@+id/LutemonImg">
+            app:layout_constraintStart_toEndOf="@+id/LutemonTrainingImg">
 
             <TextView
-                android:id="@+id/LutemonNameTxt"
+                android:id="@+id/LutemonTrainingNameTxt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Name" />
 
             <TextView
-                android:id="@+id/LutemonTypeTxt"
+                android:id="@+id/LutemonTrainingTypeTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView" />
 
             <TextView
-                android:id="@+id/LutemonHpTxt"
+                android:id="@+id/LutemonTrainingHpTxt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="TextView" />

@@ -1,5 +1,7 @@
 package com.lauri.oliolutemon.location;
 
+import android.util.Log;
+
 import com.lauri.oliolutemon.LutemonStorage;
 import com.lauri.oliolutemon.monsters.Lutemon;
 
@@ -10,16 +12,20 @@ public class TrainingArea extends LutemonLocation{
         name = "Training Area";
     }
 
-    public void train(int Id){
-        ArrayList<Lutemon> homeLutemons = LutemonStorage.getInstance().getHome().getLutemons();
-        for(Lutemon l : homeLutemons){
-            if(l.getId() == Id){
-                lutemons.add(l);
-                LutemonStorage.getInstance().getHome().removeLutemon(l.getId());
+    public void train(Lutemon lutemon){
+        lutemons.add(lutemon);
+        Log.d("training area", "Moneja: " + lutemons.size());
+    }
+    public ArrayList<Lutemon> sendHome(int lutemonId){
+        int i = 0;
+        for (Lutemon l : lutemons){
+            if(l.getId() == (lutemonId)){
+                break;
             }
-            else{
-
-            }
+            i++;
         }
+        LutemonStorage.getInstance().getHome().recieveLutemon(lutemons.get(i));
+        lutemons.remove(i);
+        return lutemons;
     }
 }

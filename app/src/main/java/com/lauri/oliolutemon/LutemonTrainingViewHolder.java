@@ -12,11 +12,11 @@ public class LutemonTrainingViewHolder extends RecyclerView.ViewHolder {
     ImageView lutemonImg,sendHomeBtn;
     public LutemonTrainingViewHolder(@NonNull View itemView) {
         super(itemView);
-        lutemonNameTxt = itemView.findViewById(R.id.LutemonNameTxt);
-        lutemonTypeTxt = itemView.findViewById(R.id.LutemonTypeTxt);
-        lutemonHpTxt = itemView.findViewById(R.id.LutemonHpTxt);
-        lutemonImg = itemView.findViewById(R.id.LutemonImg);
-        sendHomeBtn = itemView.findViewById(R.id.LutemonTestRV);
+        lutemonNameTxt = itemView.findViewById(R.id.LutemonTrainingNameTxt);
+        lutemonTypeTxt = itemView.findViewById(R.id.LutemonTrainingTypeTxt);
+        lutemonHpTxt = itemView.findViewById(R.id.LutemonTrainingHpTxt);
+        lutemonImg = itemView.findViewById(R.id.LutemonTrainingImg);
+        sendHomeBtn = itemView.findViewById(R.id.SendHomeBtn);
 
 
     }

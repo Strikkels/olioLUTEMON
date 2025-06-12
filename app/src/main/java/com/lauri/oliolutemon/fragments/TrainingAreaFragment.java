@@ -3,6 +3,7 @@ package com.lauri.oliolutemon.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -11,8 +12,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.lauri.oliolutemon.LutemonStorage;
-import com.lauri.oliolutemon.LutemonsHomeListAdapter;
+import com.lauri.oliolutemon.LutemonsTrainingListAdapter;
 import com.lauri.oliolutemon.R;
+import com.lauri.oliolutemon.SharedViewModel;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -33,7 +37,7 @@ public class TrainingAreaFragment extends Fragment {
 
         RecyclerView recyclerView = view.findViewById(R.id.LutemonTrainingRV);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setAdapter(new LutemonsHomeListAdapter(getContext(), LutemonStorage.getInstance().getTrainingArea().getLutemons()));
+        recyclerView.setAdapter(new LutemonsTrainingListAdapter(getContext(), LutemonStorage.getInstance().getTrainingArea().getLutemons()));
 
         return view;
     }

@@ -37,7 +37,6 @@ public class CreateLutemonActivity extends AppCompatActivity {
     }
     public void createLutemon(View view){
         String name = lutemonName.getText().toString();
-        String type = null;
         Lutemon lutemon = null;
 
         int checkedRadioButtonId = lutemonType.getCheckedRadioButtonId();
@@ -55,7 +54,7 @@ public class CreateLutemonActivity extends AppCompatActivity {
             Toast.makeText(this,"Choose type", Toast.LENGTH_SHORT).show();
             return;
         }
-        System.out.println("nimi: " + name + " tyyppi: " + type);
+        System.out.println("nimi: " + name + " tyyppi: " + lutemon.getType() + " id: " + lutemon.getId());
         LutemonStorage.getInstance().getHome().createLutemon(lutemon);
 
     }
