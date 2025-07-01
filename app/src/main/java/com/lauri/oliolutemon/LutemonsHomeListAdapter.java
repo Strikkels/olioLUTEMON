@@ -12,12 +12,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.lauri.oliolutemon.monsters.Lutemon;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class LutemonsHomeListAdapter extends RecyclerView.Adapter<LutemonHomeViewHolder> {
     private Context context;
-    private ArrayList<Lutemon> lutemons = new ArrayList<>();
+    private HashMap<Integer, Lutemon> lutemons = new HashMap<>();
 
-    public LutemonsHomeListAdapter(Context context, ArrayList<Lutemon> lutemons){
+    public LutemonsHomeListAdapter(Context context, HashMap<Integer, Lutemon> lutemons){
         this.lutemons = lutemons;
         this.context = context;
     }
@@ -33,13 +34,18 @@ public class LutemonsHomeListAdapter extends RecyclerView.Adapter<LutemonHomeVie
         holder.lutemonNameTxt.setText(lutemons.get(position).getName());
         holder.lutemonTypeTxt.setText(lutemons.get(position).getType());
         holder.lutemonImg.setImageResource(lutemons.get(position).getImg());
-
+        /*
         holder.lutemonSendTrainingImg.setOnClickListener(v -> {
             int pos = holder.getAdapterPosition();
+
             LutemonStorage.getInstance().getTrainingArea().train(lutemons.get(pos));
             LutemonStorage.getInstance().getHome().removeLutemon(lutemons.get(pos).getId());
             notifyItemRemoved(pos);
+
+
         });
+
+         */
     }
 
     @Override

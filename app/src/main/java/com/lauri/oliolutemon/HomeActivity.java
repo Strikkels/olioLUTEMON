@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.lauri.oliolutemon.location.Home;
 import com.lauri.oliolutemon.monsters.Black;
 import com.lauri.oliolutemon.monsters.Green;
 import com.lauri.oliolutemon.monsters.Lutemon;
@@ -19,7 +20,7 @@ import com.lauri.oliolutemon.monsters.Orange;
 import com.lauri.oliolutemon.monsters.Pink;
 import com.lauri.oliolutemon.monsters.White;
 
-public class CreateLutemonActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity {
     private EditText lutemonName;
     private RadioGroup lutemonType;
     @Override
@@ -28,6 +29,7 @@ public class CreateLutemonActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_create_lutemon);
 
+        Home home = LutemonStorage.getInstance().getHome();
         lutemonName = findViewById(R.id.LutemonNameEdit);
         lutemonType = findViewById(R.id.RadioGroup);
 
