@@ -7,5 +7,10 @@ public class Orange extends Lutemon{
         super(name);
         img = R.drawable.orange;
         type = "Orange";
+        attack = 8;
+        defense = 1;
+        experience = 1;
+        maxHealth = 17;
+        health = maxHealth;
     }
 }

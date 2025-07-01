@@ -1,17 +1,13 @@
 package com.lauri.oliolutemon;
 
-import com.lauri.oliolutemon.location.BattleField;
+import com.lauri.oliolutemon.location.BattleArena;
 import com.lauri.oliolutemon.location.Home;
-import com.lauri.oliolutemon.location.LutemonLocation;
 import com.lauri.oliolutemon.location.TrainingArea;
-import com.lauri.oliolutemon.monsters.Lutemon;
-
-import java.util.ArrayList;
 
 public class LutemonStorage {
     private static LutemonStorage lutemonStorage = null;
     private Home home = new Home();
-    private BattleField battleField = new BattleField();
+    private BattleArena battleField = new BattleArena();
     private TrainingArea trainingArea = new TrainingArea();
     private LutemonStorage(){
     }
@@ -25,7 +21,7 @@ public class LutemonStorage {
         return home;
     }
 
-    public BattleField getBattleField() {
+    public BattleArena getBattleField() {
         return battleField;
     }
 

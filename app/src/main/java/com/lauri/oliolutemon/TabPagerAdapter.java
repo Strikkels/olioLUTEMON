@@ -1,7 +1,5 @@
 package com.lauri.oliolutemon;
 
-import android.util.Log;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
@@ -10,7 +8,6 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 import com.lauri.oliolutemon.fragments.BattleFieldFragment;
 import com.lauri.oliolutemon.fragments.HomeFragment;
 import com.lauri.oliolutemon.fragments.TrainingAreaFragment;
-import com.lauri.oliolutemon.location.BattleField;
 
 public class TabPagerAdapter extends FragmentStateAdapter {
     public TabPagerAdapter(@NonNull FragmentActivity fragmentActivity) {

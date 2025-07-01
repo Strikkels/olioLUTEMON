@@ -7,5 +7,10 @@ public class Green extends Lutemon{
         super(name);
         img = R.drawable.green;
         type = "Green";
+        attack = 6;
+        defense = 3;
+        experience = 1;
+        maxHealth = 19;
+        health = maxHealth;
     }
 }

@@ -10,27 +10,31 @@ public class Lutemon {
     protected int maxHealth;
     protected String type;
     protected int img;
-    protected int id;
-    protected static int idCounter;
+
 
     public Lutemon(String name,int attack, int defense, int experience, int health, int maxHealth, int id){
+        this.maxHealth = maxHealth;
         this.name = name;
-        this.id = idCounter;
-        idCounter++;
+
     }
     public Lutemon (String name){
+        this.maxHealth = 0;
         this.name = name;
-        this.id = idCounter;
-        idCounter++;
     }
-    public void defense(Lutemon lutemon){
-
+    public void defend(int damage){
+        int takenDamage;
+        if(damage > defense){
+            takenDamage = damage - defense;
+            health -= takenDamage;
+        } else{
+            takenDamage = 0;
+        }
+        System.out.println(name + " defended " + defense + " points! It lost " + takenDamage + " hp. Total health: " + health + "/" + maxHealth + "");
     }
-    public void attack(){
-
-    }
-    public int getNumberOfCreatedLutemons(){
-        return ++idCounter;
+    public int attack(){
+        attack += (int) (Math.random() * 10);
+        System.out.println(name + " attacked with " + attack + " damage!");
+        return attack;
     }
 
     public String getName() {
@@ -61,9 +65,6 @@ public class Lutemon {
         return maxHealth;
     }
 
-    public int getId() {
-        return id;
-    }
     public String getType() {
         return type;
     }
@@ -71,10 +72,18 @@ public class Lutemon {
     public int getImg() {
         return img;
     }
-    public void levelUp(int experience) {
+    public void gainExperience(int experience) {
         this.experience += experience;
         this.maxHealth += experience;
         this.defense += experience;
         this.attack += experience;
+    }
+
+    public void gainHealth(int health){
+        this.health += health;
+    }
+
+    public void printStats(){
+        System.out.println(type + " (" + name + ")" + " att: " + attack + ", def: " + defense + " exp: " + experience + "; healt: " + health + "/" + maxHealth);
     }
 }

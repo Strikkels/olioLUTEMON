@@ -7,5 +7,10 @@ public class Pink extends Lutemon{
         super(name);
         img = R.drawable.pink;
         type = "Pink";
+        attack = 7;
+        defense = 2;
+        experience = 1;
+        maxHealth = 18;
+        health = maxHealth;
     }
 }

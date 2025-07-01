@@ -12,20 +12,12 @@ public class TrainingArea extends LutemonLocation{
         name = "Training Area";
     }
 
-    public void train(Lutemon lutemon){
-        lutemons.add(lutemon);
-        Log.d("training area", "Moneja: " + lutemons.size());
-    }
-    public ArrayList<Lutemon> sendHome(int lutemonId){
-        int i = 0;
-        for (Lutemon l : lutemons){
-            if(l.getId() == (lutemonId)){
-                break;
-            }
-            i++;
+    public void trainLutemons(){
+        int xp = 0;
+        for(int key : lutemonStorage.keySet()){
+            xp = (int) (Math.random() * 100);
+            lutemonStorage.get(key).gainExperience(xp);
+            System.out.println(lutemonStorage.get(key).getName() + " gained " + xp + " experience!");
         }
-        LutemonStorage.getInstance().getHome().recieveLutemon(lutemons.get(i));
-        lutemons.remove(i);
-        return lutemons;
     }
 }

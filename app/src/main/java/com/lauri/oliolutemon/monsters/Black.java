@@ -7,6 +7,11 @@ public class Black extends Lutemon {
         super(name);
         img = R.drawable.black;
         type = "Black";
+        attack = 9;
+        defense = 0;
+        experience = 1;
+        maxHealth = 16;
+        health = maxHealth;
 
     }
 }
