@@ -9,17 +9,10 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.lauri.oliolutemon.location.Home;
 import com.lauri.oliolutemon.location.LutemonLocation;
-import com.lauri.oliolutemon.monsters.Black;
-import com.lauri.oliolutemon.monsters.Green;
-import com.lauri.oliolutemon.monsters.Lutemon;
-import com.lauri.oliolutemon.monsters.Orange;
-import com.lauri.oliolutemon.monsters.Pink;
-import com.lauri.oliolutemon.monsters.White;
 
 public class HomeActivity extends AppCompatActivity {
     private EditText lutemonName;
@@ -30,11 +23,11 @@ public class HomeActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_home);
 
-        Home home = LutemonStorage.getInstance().getHome();
+        Home home = LutemonLocationStorage.getInstance().getHome();
         lutemonName = findViewById(R.id.LutemonNameEdit);
         lutemonType = findViewById(R.id.RadioGroup);
 
-        RecyclerView recyclerView = findViewById(R.id.LutemonTestRV);
+        RecyclerView recyclerView = findViewById(R.id.lutemonHomeRecyclerView);
 
         //recyclerView.setLayoutManager(new LinearLayoutManager(this));
         //recyclerView.setAdapter(new LutemonsHomeListAdapter(getApplicationContext(), LutemonStorage.getInstance().getHome().getLutemons()));
@@ -58,7 +51,7 @@ public class HomeActivity extends AppCompatActivity {
             Toast.makeText(this,"Choose type", Toast.LENGTH_SHORT).show();
             return;
         }
-        LutemonStorage.getInstance().getHome().createLutemon(type, name);
+        LutemonLocationStorage.getInstance().getHome().createLutemon(type, name);
 
     }
 

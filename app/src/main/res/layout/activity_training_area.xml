@@ -7,12 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".TrainingAreaActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="409dp"
-        android:layout_height="729dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/trainLutemonButton" />
-
     <Button
         android:id="@+id/trainLutemonButton"
         android:layout_width="160dp"
@@ -24,6 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        android:id="@+id/Get Lutemon"
         android:layout_width="160dp"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
@@ -31,4 +26,5 @@
         android:text="Button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

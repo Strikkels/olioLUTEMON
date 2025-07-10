@@ -1,12 +1,5 @@
 package com.lauri.oliolutemon.location;
 
-import android.util.Log;
-
-import com.lauri.oliolutemon.LutemonStorage;
-import com.lauri.oliolutemon.monsters.Lutemon;
-
-import java.util.ArrayList;
-
 public class TrainingArea extends LutemonLocation{
     public TrainingArea() {
         name = "Training Area";
