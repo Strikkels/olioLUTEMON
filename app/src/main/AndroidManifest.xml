@@ -13,6 +13,12 @@
         android:theme="@style/Theme.OlioLUTEMON"
         tools:targetApi="31">
         <activity
+            android:name=".BattleArenaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TrainingAreaActivity"
+            android:exported="false" />
+        <activity
             android:name=".HomeActivity"
             android:exported="false" />
         <activity

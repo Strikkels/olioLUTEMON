@@ -29,26 +29,26 @@ public class Home extends LutemonLocation{
         idCounter++;
     }
 
-    public void createLutemon(int lutemonType, String lutemonName){
+    public void createLutemon(LutemonType lutemonType, String lutemonName){
         Lutemon lutemon = null;
         switch (lutemonType) {
-            case 1:
+            case BLACK:
                 lutemon = new Black(lutemonName);
                 break;
-            case 2:
+            case GREEN:
                 lutemon = new Green(lutemonName);
                 break;
-            case 3:
+            case ORANGE:
                 lutemon = new Orange(lutemonName);
                 break;
-            case 4:
+            case PINK:
                 lutemon = new Pink(lutemonName);
                 break;
-            case 5:
+            case WHITE:
                 lutemon = new White(lutemonName);
                 break;
             default:
-                System.out.println("Not an option, try between 1-5");
+                System.out.println("Invalid lutemon type");
                 break;
         }
         lutemonId = idCounter;
@@ -60,6 +60,5 @@ public class Home extends LutemonLocation{
             String lName = lutemonStorage.get(key).getName();
             System.out.println(key + " " + lName);
         }
-        System.out.println("\n");
     }
 }
