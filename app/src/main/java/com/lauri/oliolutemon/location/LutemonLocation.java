@@ -14,13 +14,7 @@ public class LutemonLocation {
         return lutemonStorage;
     }
 
-    public enum LutemonType {
-        BLACK,
-        GREEN,
-        ORANGE,
-        PINK,
-        WHITE
-    }
+
     public void addLutemon(int lutemonId, Lutemon lutemon){
         lutemonStorage.put(lutemonId, lutemon);
         System.out.println(lutemon.getName() + " added to " + name);

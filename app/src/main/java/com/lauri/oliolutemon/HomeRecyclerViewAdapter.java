@@ -14,13 +14,18 @@ import java.util.HashMap;
 
 public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerViewHolder> {
     private Context context;
-    private ArrayList<Lutemon> lutemons = new ArrayList<>();
+    private ArrayList<Lutemon> lutemonsToDisplay = new ArrayList<>();
     public HomeRecyclerViewAdapter(Context context, HashMap<Integer, Lutemon> lutemonStorage) {
         this.context = context;
+        lutemonsToDisplay.clear();
         for(int key : lutemonStorage.keySet()) {
-            String lName = lutemonStorage.get(key).getName();
-
+            Lutemon l = lutemonStorage.get(key);
+            lutemonsToDisplay.add(l);
         }
+    }
+
+    public void addToLutemonsToDisplay(Lutemon lutemon){
+        lutemonsToDisplay.add(lutemon);
     }
 
     @NonNull
@@ -31,16 +36,13 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerVi
 
     @Override
     public void onBindViewHolder(@NonNull HomeRecyclerViewHolder holder, int position) {
-
-    }
-
-    @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-
+        holder.lutemonTypeTxt.setText(lutemonsToDisplay.get(position).getType());
+        holder.lutemonNameTxt.setText(lutemonsToDisplay.get(position).getName());
+        //holder.lutemonHealthTxt.setText(lutemonsToDisplay.get(position).getHealth());
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return lutemonsToDisplay.size();
     }
 }

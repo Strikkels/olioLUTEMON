@@ -2,6 +2,7 @@ package com.lauri.oliolutemon;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioGroup;
@@ -9,50 +10,52 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.lauri.oliolutemon.location.Home;
-import com.lauri.oliolutemon.location.LutemonLocation;
+import com.lauri.oliolutemon.monsters.Lutemon;
 
 public class HomeActivity extends AppCompatActivity {
     private EditText lutemonName;
     private RadioGroup lutemonType;
+    private HomeRecyclerViewAdapter rvAdapter;
+    private final Home home = LutemonLocationStorage.getInstance().getHome();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_home);
-
-        Home home = LutemonLocationStorage.getInstance().getHome();
         lutemonName = findViewById(R.id.LutemonNameEdit);
         lutemonType = findViewById(R.id.RadioGroup);
-
-        RecyclerView recyclerView = findViewById(R.id.lutemonHomeRecyclerView);
-
-        //recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        //recyclerView.setAdapter(new LutemonsHomeListAdapter(getApplicationContext(), LutemonStorage.getInstance().getHome().getLutemons()));
+        RecyclerView recyclerView = findViewById(R.id.HomeRecyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        rvAdapter = new HomeRecyclerViewAdapter(getApplicationContext(), home.getLutemons());
+        recyclerView.setAdapter(rvAdapter);
     }
     public void createLutemon(View view){
         String name = lutemonName.getText().toString();
-        LutemonLocation.LutemonType type = null;
+        LutemonType type;
 
         int checkedRadioButtonId = lutemonType.getCheckedRadioButtonId();
         if (checkedRadioButtonId == R.id.LutemonBlackBtn){
-            type = LutemonLocation.LutemonType.BLACK;
+            type = LutemonType.BLACK;
         } else if (checkedRadioButtonId == R.id.LutemonGreenBtn) {
-            type = LutemonLocation.LutemonType.GREEN;
+            type = LutemonType.GREEN;
         } else if (checkedRadioButtonId == R.id.LutemonOrangeBtn) {
-            type = LutemonLocation.LutemonType.ORANGE;
+            type = LutemonType.ORANGE;
         } else if (checkedRadioButtonId == R.id.LutemonPinkBtn) {
-            type = LutemonLocation.LutemonType.PINK;
+            type = LutemonType.PINK;
         } else if (checkedRadioButtonId == R.id.LutemonWhiteBtn) {
-            type = LutemonLocation.LutemonType.WHITE;
+            type = LutemonType.WHITE;
         } else{
             Toast.makeText(this,"Choose type", Toast.LENGTH_SHORT).show();
             return;
         }
-        LutemonLocationStorage.getInstance().getHome().createLutemon(type, name);
-
+        Lutemon createdLutemon = LutemonLocationStorage.getInstance().getHome().createLutemon(type, name);
+        rvAdapter.addToLutemonsToDisplay(createdLutemon);
+        rvAdapter.notifyItemInserted(LutemonLocationStorage.getInstance().getHome().getLutemons().size() - 1);
     }
 
     public void switchToMainActivity(View view){

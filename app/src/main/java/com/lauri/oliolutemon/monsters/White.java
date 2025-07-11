@@ -5,7 +5,7 @@ import com.lauri.oliolutemon.R;
 public class White extends Lutemon{
     public White(String name) {
         super(name);
-        img = R.drawable.white;
+        //img = R.drawable.White;
         type = "White";
         attack = 5;
         defense = 4;

@@ -1,5 +1,10 @@
 package com.lauri.oliolutemon.location;
 
+import android.util.Log;
+
+import androidx.annotation.NonNull;
+
+import com.lauri.oliolutemon.LutemonType;
 import com.lauri.oliolutemon.monsters.Black;
 import com.lauri.oliolutemon.monsters.Green;
 import com.lauri.oliolutemon.monsters.Lutemon;
@@ -29,7 +34,7 @@ public class Home extends LutemonLocation{
         idCounter++;
     }
 
-    public void createLutemon(LutemonType lutemonType, String lutemonName){
+    public Lutemon createLutemon(LutemonType lutemonType, String lutemonName){
         Lutemon lutemon = null;
         switch (lutemonType) {
             case BLACK:
@@ -58,7 +63,8 @@ public class Home extends LutemonLocation{
         System.out.println("Lutemon created!" + " Lutemons at Home: ");
         for(int key : lutemonStorage.keySet()) {
             String lName = lutemonStorage.get(key).getName();
-            System.out.println(key + " " + lName);
+            Log.d("LUTEMONS",key + " " + lName);
         }
+        return lutemon;
     }
 }
