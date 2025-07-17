@@ -34,11 +34,9 @@ public class Lutemon {
         } else{
             takenDamage = 0;
         }
-        System.out.println(name + " defended " + defense + " points! It lost " + takenDamage + " hp. Total health: " + health + "/" + maxHealth );
     }
     public int attack(){
         attack += (int) (Math.random() * 10);
-        System.out.println(name + " attacked with " + attack + " damage!");
         return attack;
     }
 
@@ -84,16 +82,14 @@ public class Lutemon {
         this.health = maxHealth;
         this.defense += experience;
         this.attack += experience;
-        Log.d(name, "I gained xp!!");
     }
 
     public void gainHealth(int health){
         this.health += health;
     }
 
-    public String printStats(){
+    public String getStats(){
         String stats = type + " (" + name + ")" + " att: " + attack + ", def: " + defense + " exp: " + experience + "; healt: " + health + "/" + maxHealth;
-        System.out.println(type + " (" + name + ")" + " att: " + attack + ", def: " + defense + " exp: " + experience + "; healt: " + health + "/" + maxHealth);
         return stats;
     }
 }

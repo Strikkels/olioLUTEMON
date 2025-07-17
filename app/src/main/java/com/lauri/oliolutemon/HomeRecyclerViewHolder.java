@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class HomeRecyclerViewHolder extends RecyclerView.ViewHolder {
-    TextView lutemonNameTxt, lutemonTypeTxt, lutemonHealthTxt;
+    TextView lutemonNameTxt, lutemonTypeTxt, lutemonHealthTxt, lutemonXpTxt;
     ImageView lutemonIcon, sendTraining, sendBattle;
     public HomeRecyclerViewHolder(@NonNull View itemView) {
         super(itemView);

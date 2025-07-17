@@ -17,16 +17,10 @@ public class LutemonLocation {
 
     public void addLutemon(int lutemonId, Lutemon lutemon){
         lutemonStorage.put(lutemonId, lutemon);
-        System.out.println(lutemon.getName() + " added to " + name);
-        System.out.println("Lutemons currently at " + name + ": ");
-        for(int key : lutemonStorage.keySet()){
-            System.out.println(key + " " + lutemonStorage.get(key).getType() + "(" + lutemonStorage.get(key).getName() + ")");
-        } System.out.println("");
     }
 
     public Lutemon yoinkLutemon(int lutemonId){
         Lutemon lutemon = lutemonStorage.remove(lutemonId);
-        System.out.println("Lutemon " + lutemon.getName() + " yoinked from " + name + "!");
         return lutemon;
     }
     public String getName(){

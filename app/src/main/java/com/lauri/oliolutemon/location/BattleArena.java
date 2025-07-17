@@ -11,13 +11,12 @@ public class BattleArena extends LutemonLocation{
 
     public String battle(){
         if(lutemonStorage.size()<2){
-            Log.d("Lutemon Battle", "Not enough lutemons to fight");
             return "Not enough lutemons to battle";
         }
         String battleOutput = "";
 
         //initialize lutemons
-        Lutemon lutemonA = null, lutemonB = null, attacker = null, defender = null;
+        Lutemon lutemonA = null, lutemonB = null, attacker , defender;
         int keyA = 0, keyB = 0, keyAttacker, keyDefender;
         int i = 0;
         for(int key : lutemonStorage.keySet()){
@@ -45,13 +44,12 @@ public class BattleArena extends LutemonLocation{
             keyDefender = keyA;
         }
         battleOutput += "Battle starts! \n";
-        Log.d("Battle", "Battle starts!");
         boolean exit = false;
         while(!exit) {
             battleOutput += ("Lutemons stats: \n");
             for (int key : lutemonStorage.keySet()){
                 String lutemonStats;
-                lutemonStats = lutemonStorage.get(key).printStats();
+                lutemonStats = lutemonStorage.get(key).getStats();
                 battleOutput += lutemonStats + "\n";
             }
 
@@ -72,7 +70,7 @@ public class BattleArena extends LutemonLocation{
                     keyDefender = keyB;
                 }
             } else{
-                battleOutput += (defender.getName() + " died! " + attacker.getName() + " gained 1 xp!");
+                battleOutput += (defender.getType() + "(" + defender.getName() + ") " + " died! " + attacker.getType() + "(" + attacker.getName() + ")" + " gained 1 xp!");
                 attacker.gainHealth(attacker.getMaxHealth());
                 defender.gainHealth(defender.getMaxHealth());
                 attacker.gainExperience(1);
