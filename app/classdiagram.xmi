@@ -93,27 +93,27 @@
         </UML:Operation>
        </UML:Classifier.feature>
       </UML:Class>
-      <UML:Class visibility="public" isSpecification="false" namespace="Logical_View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="uPWq38XNkGtUC" name="Green">
+      <UML:Class visibility="public" isSpecification="false" namespace="Logical_View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="uPWq38XNkGtUC" name="green">
        <UML:GeneralizableElement.generalization>
         <UML:Generalization xmi.idref="uAkQfxiT1nM3x"/>
        </UML:GeneralizableElement.generalization>
       </UML:Class>
-      <UML:Class visibility="public" isSpecification="false" namespace="Logical_View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="umeRoYNUgE9l8" name="Pink">
+      <UML:Class visibility="public" isSpecification="false" namespace="Logical_View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="umeRoYNUgE9l8" name="pink">
        <UML:GeneralizableElement.generalization>
         <UML:Generalization xmi.idref="uyp6cdovLuJdA"/>
        </UML:GeneralizableElement.generalization>
       </UML:Class>
-      <UML:Class visibility="public" isSpecification="false" namespace="Logical_View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="u3cDIPeeUvhoX" name="Orange">
+      <UML:Class visibility="public" isSpecification="false" namespace="Logical_View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="u3cDIPeeUvhoX" name="orange">
        <UML:GeneralizableElement.generalization>
         <UML:Generalization xmi.idref="u7lcfm1IukeAj"/>
        </UML:GeneralizableElement.generalization>
       </UML:Class>
-      <UML:Class visibility="public" isSpecification="false" namespace="Logical_View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="uPQvOgIpg3zFQ" name="White">
+      <UML:Class visibility="public" isSpecification="false" namespace="Logical_View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="uPQvOgIpg3zFQ" name="white">
        <UML:GeneralizableElement.generalization>
         <UML:Generalization xmi.idref="unXQbog8fGpeZ"/>
        </UML:GeneralizableElement.generalization>
       </UML:Class>
-      <UML:Class visibility="public" isSpecification="false" namespace="Logical_View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="uVtpUl1uvDX5u" name="Black">
+      <UML:Class visibility="public" isSpecification="false" namespace="Logical_View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="uVtpUl1uvDX5u" name="black">
        <UML:GeneralizableElement.generalization>
         <UML:Generalization xmi.idref="uildzvKGOOq7j"/>
        </UML:GeneralizableElement.generalization>

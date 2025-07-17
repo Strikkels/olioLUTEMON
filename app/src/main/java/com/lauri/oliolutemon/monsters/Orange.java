@@ -3,9 +3,9 @@ package com.lauri.oliolutemon.monsters;
 import com.lauri.oliolutemon.R;
 
 public class Orange extends Lutemon{
-    public Orange(String name) {
-        super(name);
-        //img = R.drawable.Orange;
+    public Orange(String name, int id) {
+        super(name, id);
+        img = R.drawable.lutemon_orange_icon;
         type = "Orange";
         attack = 8;
         defense = 1;

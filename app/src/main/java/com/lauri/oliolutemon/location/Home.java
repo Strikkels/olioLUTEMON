@@ -17,53 +17,58 @@ public class Home extends LutemonLocation{
     protected int lutemonId;
     public Home() {
         name = "Home";
-        lutemonStorage.put(lutemonId, new Black("Metal"));
         lutemonId = idCounter;
         idCounter++;
-        lutemonStorage.put(lutemonId, new Green("Gröna"));
+        lutemonStorage.put(lutemonId, new Black("Metal",lutemonId));
+
         lutemonId = idCounter;
         idCounter++;
-        lutemonStorage.put(lutemonId, new Orange("Orinz"));
+        lutemonStorage.put(lutemonId, new Green("Gröna",lutemonId));
+
         lutemonId = idCounter;
         idCounter++;
-        lutemonStorage.put(lutemonId, new Pink("Possu"));
+        lutemonStorage.put(lutemonId, new Orange("Orinz",lutemonId));
+
         lutemonId = idCounter;
         idCounter++;
-        lutemonStorage.put(lutemonId, new White("Mr"));
+        lutemonStorage.put(lutemonId, new Pink("Possu",lutemonId));
+
         lutemonId = idCounter;
         idCounter++;
+        lutemonStorage.put(lutemonId, new White("Mr",lutemonId));
     }
 
     public Lutemon createLutemon(LutemonType lutemonType, String lutemonName){
         Lutemon lutemon = null;
+        lutemonId = idCounter;
+        idCounter++;
         switch (lutemonType) {
             case BLACK:
-                lutemon = new Black(lutemonName);
+                lutemon = new Black(lutemonName,lutemonId);
                 break;
             case GREEN:
-                lutemon = new Green(lutemonName);
+                lutemon = new Green(lutemonName,lutemonId);
                 break;
             case ORANGE:
-                lutemon = new Orange(lutemonName);
+                lutemon = new Orange(lutemonName,lutemonId);
                 break;
             case PINK:
-                lutemon = new Pink(lutemonName);
+                lutemon = new Pink(lutemonName,lutemonId);
                 break;
             case WHITE:
-                lutemon = new White(lutemonName);
+                lutemon = new White(lutemonName,lutemonId);
                 break;
             default:
                 System.out.println("Invalid lutemon type");
                 break;
         }
-        lutemonId = idCounter;
-        idCounter++;
         lutemonStorage.put(lutemonId, lutemon);
 
         System.out.println("Lutemon created!" + " Lutemons at Home: ");
         for(int key : lutemonStorage.keySet()) {
             String lName = lutemonStorage.get(key).getName();
-            Log.d("LUTEMONS",key + " " + lName);
+            int lId = lutemonStorage.get(key).getId();
+            Log.d("LUTEMONS",key + " " + lName + " " + lId);
         }
         return lutemon;
     }

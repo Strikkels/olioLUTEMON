@@ -12,9 +12,10 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/LutemonTrainingImg"
+            android:id="@+id/LutemonImg"
             android:layout_width="80dp"
             android:layout_height="80dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_launcher_foreground" />
@@ -25,25 +26,31 @@
             android:layout_height="match_parent"
             android:layout_marginStart="8dp"
             android:orientation="vertical"
-            app:layout_constraintStart_toEndOf="@+id/LutemonTrainingImg">
-
-            <TextView
-                android:id="@+id/LutemonTrainingNameTxt"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Name" />
+            app:layout_constraintStart_toEndOf="@+id/LutemonImg">
 
             <TextView
                 android:id="@+id/LutemonTrainingTypeTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="Type" />
 
             <TextView
-                android:id="@+id/LutemonTrainingHpTxt"
+                android:id="@+id/LutemonTrainingNameTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name" />
+
+            <TextView
+                android:id="@+id/LutemonTrainingHealthTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Health" />
+
+            <TextView
+                android:id="@+id/LutemonXpTxt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="Experience" />
         </LinearLayout>
 
         <ImageView
@@ -53,7 +60,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
+            android:src="@android:drawable/ic_menu_close_clear_cancel" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

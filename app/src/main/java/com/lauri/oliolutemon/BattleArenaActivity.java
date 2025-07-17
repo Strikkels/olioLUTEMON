@@ -3,25 +3,40 @@ package com.lauri.oliolutemon;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.lauri.oliolutemon.location.BattleArena;
 
 public class BattleArenaActivity extends AppCompatActivity {
-
+    private BattleArena battleArena = LocationStorage.getInstance().getBattleArena();
+    private BattleArenaRecyclerViewAdapter rvAdapter;
+    private TextView battleOutput;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_battle_arena);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+        RecyclerView recyclerView = findViewById(R.id.BattleArenaRecyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        rvAdapter = new BattleArenaRecyclerViewAdapter(getApplicationContext(), battleArena.getLutemons());
+        recyclerView.setAdapter(rvAdapter);
+        battleOutput = findViewById(R.id.battleOutputText);
+    }
+
+    public void startBattle(View view){
+        if(battleArena.getLutemons().size() < 2){
+            battleOutput.setText("Not enough lutemons to fight");
+            return;
+        }
+        String battle = battleArena.battle();
+        rvAdapter.sendLutemonsHome();
+        battleOutput.setText(battle);
+
     }
     public void switchToMainActivity(View view){
         Intent intent = new Intent(this, MainActivity.class);

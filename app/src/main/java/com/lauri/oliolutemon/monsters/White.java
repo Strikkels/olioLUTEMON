@@ -3,9 +3,9 @@ package com.lauri.oliolutemon.monsters;
 import com.lauri.oliolutemon.R;
 
 public class White extends Lutemon{
-    public White(String name) {
-        super(name);
-        //img = R.drawable.White;
+    public White(String name, int id) {
+        super(name, id);
+        img = R.drawable.lutemon_white_icon;
         type = "White";
         attack = 5;
         defense = 4;

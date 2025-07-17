@@ -12,16 +12,12 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/SendBattleBtn"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/attackbtn" />
-
-        <ImageView
             android:id="@+id/LutemonImg"
             android:layout_width="80dp"
             android:layout_height="80dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_launcher_foreground" />
 
         <LinearLayout
@@ -52,11 +48,24 @@
         </LinearLayout>
 
         <ImageView
-            android:id="@+id/SendTrainginBtn"
+            android:id="@+id/SendTrainingBtn"
             android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/action_training"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/SendBattleBtn"
-            app:srcCompat="@drawable/trainingbtn" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <ImageView
+            android:id="@+id/SendBattleBtn"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/action_battle" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

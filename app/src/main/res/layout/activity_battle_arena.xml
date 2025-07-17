@@ -7,49 +7,44 @@
     android:layout_height="match_parent"
     tools:context=".BattleArenaActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/lutemonARecyclerView"
-        android:layout_width="196dp"
-        android:layout_height="280dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lutemonAStateText" />
-
-    <TextView
-        android:id="@+id/lutemonAStateText"
+    <Button
+        android:id="@+id/menuButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="lutemon A"
-        app:layout_constraintEnd_toEndOf="@+id/lutemonARecyclerView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/lutemonBStateText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="lutemon B"
+        android:layout_marginBottom="32dp"
+        android:onClick="switchToMainActivity"
+        android:text="Menu"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/lutemonBRecyclerView"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/lutemonBRecyclerView"
-        android:layout_width="211dp"
-        android:layout_height="209dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/lutemonARecyclerView"
-        app:layout_constraintTop_toBottomOf="@+id/lutemonBStateText" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/battleOutputText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:layout_marginTop="8dp"
+        android:text="Add two lutemons from home and press Fight"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lutemonARecyclerView" />
+        app:layout_constraintTop_toBottomOf="@+id/BattleArenaRecyclerView" />
+
+    <Button
+        android:id="@+id/StartFightBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:onClick="startBattle"
+        android:text="Fight"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/BattleArenaRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/StartFightBtn" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,7 +2,6 @@ package com.lauri.oliolutemon;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioGroup;
@@ -20,7 +19,7 @@ public class HomeActivity extends AppCompatActivity {
     private EditText lutemonName;
     private RadioGroup lutemonType;
     private HomeRecyclerViewAdapter rvAdapter;
-    private final Home home = LutemonLocationStorage.getInstance().getHome();
+    private final Home home = LocationStorage.getInstance().getHome();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,9 +52,9 @@ public class HomeActivity extends AppCompatActivity {
             Toast.makeText(this,"Choose type", Toast.LENGTH_SHORT).show();
             return;
         }
-        Lutemon createdLutemon = LutemonLocationStorage.getInstance().getHome().createLutemon(type, name);
+        Lutemon createdLutemon = LocationStorage.getInstance().getHome().createLutemon(type, name);
         rvAdapter.addToLutemonsToDisplay(createdLutemon);
-        rvAdapter.notifyItemInserted(LutemonLocationStorage.getInstance().getHome().getLutemons().size() - 1);
+        rvAdapter.notifyItemInserted(LocationStorage.getInstance().getHome().getLutemons().size() - 1);
     }
 
     public void switchToMainActivity(View view){

@@ -4,18 +4,18 @@ import com.lauri.oliolutemon.location.BattleArena;
 import com.lauri.oliolutemon.location.Home;
 import com.lauri.oliolutemon.location.TrainingArea;
 
-public class LutemonLocationStorage {
-    private static LutemonLocationStorage lutemonLocationStorage = null;
+public class LocationStorage {
+    private static LocationStorage locationStorage = null;
     private Home home = new Home();
     private BattleArena battleArena = new BattleArena();
     private TrainingArea trainingArea = new TrainingArea();
-    private LutemonLocationStorage(){
+    private LocationStorage(){
     }
-    public static LutemonLocationStorage getInstance(){
-        if(lutemonLocationStorage == null){
-            lutemonLocationStorage = new LutemonLocationStorage();
+    public static LocationStorage getInstance(){
+        if(locationStorage == null){
+            locationStorage = new LocationStorage();
         }
-        return lutemonLocationStorage;
+        return locationStorage;
     }
     public Home getHome(){
         return home;

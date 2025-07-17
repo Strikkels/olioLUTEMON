@@ -6,22 +6,29 @@ import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.lauri.oliolutemon.location.TrainingArea;
 
 public class TrainingAreaActivity extends AppCompatActivity {
-
+    private TrainingAreaRecyclerViewAdapter rvAdapter;
+    private final TrainingArea trainingArea = LocationStorage.getInstance().getTrainingArea();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_training_area);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+
+        RecyclerView recyclerView = findViewById(R.id.TrainingAreaRecyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        rvAdapter = new TrainingAreaRecyclerViewAdapter(getApplicationContext(), trainingArea.getLutemons());
+        recyclerView.setAdapter(rvAdapter);
+    }
+
+    public void trainLutemons(View view){
+        trainingArea.trainLutemons();
+        rvAdapter.notifyItemRangeChanged(0, trainingArea.getLutemons().size());
     }
 
     public void switchToMainActivity(View view){
