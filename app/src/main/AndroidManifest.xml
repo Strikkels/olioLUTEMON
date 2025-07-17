@@ -12,9 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.OlioLUTEMON"
         tools:targetApi="31" >
-        <activity
-            android:name=".LocateLutemonActivity"
-            android:exported="false" />
+
         <activity
             android:name=".BattleArenaActivity"
             android:exported="false" />
