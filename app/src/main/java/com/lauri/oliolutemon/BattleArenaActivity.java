@@ -11,11 +11,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.lauri.oliolutemon.location.BattleArena;
+import com.lauri.oliolutemon.location.Home;
 
 public class BattleArenaActivity extends AppCompatActivity {
     private BattleArena battleArena = LocationStorage.getInstance().getBattleArena();
     private BattleArenaRecyclerViewAdapter rvAdapter;
     private TextView battleOutput;
+    private Home home = LocationStorage.getInstance().getHome();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,12 +37,20 @@ public class BattleArenaActivity extends AppCompatActivity {
             return;
         }
         String battle = battleArena.battle();
-        rvAdapter.sendLutemonsHome();
+        sendLutemonsHome();
         battleOutput.setText(battle);
 
     }
     public void switchToMainActivity(View view){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+    }
+
+    private void sendLutemonsHome(){
+        for(int key : battleArena.getLutemons().keySet()){
+            home.addLutemon(key, battleArena.yoinkLutemon(key));
+        }
+        rvAdapter.clearLutemonsToDisplay();
+        rvAdapter.notifyDataSetChanged();
     }
 }

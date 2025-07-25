@@ -32,13 +32,8 @@ public class BattleArenaRecyclerViewAdapter extends RecyclerView.Adapter<Trainin
         lutemonsToDisplay.add(lutemon);
     }
 
-    public void sendLutemonsHome(){
-        for(Lutemon l : lutemonsToDisplay){
-            int lutemonId = l.getId();
-            home.addLutemon(lutemonId, battleArena.yoinkLutemon(lutemonId));
-        }
+    public void clearLutemonsToDisplay(){
         lutemonsToDisplay.clear();
-        notifyDataSetChanged();
     }
 
     @NonNull

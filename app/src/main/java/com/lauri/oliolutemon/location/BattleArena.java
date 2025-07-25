@@ -2,6 +2,7 @@ package com.lauri.oliolutemon.location;
 
 import android.util.Log;
 
+import com.lauri.oliolutemon.HomeActivity;
 import com.lauri.oliolutemon.monsters.Lutemon;
 
 public class BattleArena extends LutemonLocation{
@@ -72,17 +73,12 @@ public class BattleArena extends LutemonLocation{
             } else{
                 battleOutput += (defender.getType() + "(" + defender.getName() + ") " + " died! " + attacker.getType() + "(" + attacker.getName() + ")" + " gained 1 xp!");
                 attacker.gainHealth(attacker.getMaxHealth());
-                defender.gainHealth(defender.getMaxHealth());
                 attacker.gainExperience(1);
                 lutemonStorage.replace(keyAttacker, attacker);
-                lutemonStorage.replace(keyDefender, defender);
+                lutemonStorage.remove(keyDefender);
                 exit = true;
             }
         }
-
-        lutemonStorage.replace(keyA, lutemonA);
-        lutemonStorage.replace(keyB, lutemonB);
-
         return battleOutput;
     }
 }

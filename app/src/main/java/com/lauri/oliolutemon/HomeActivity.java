@@ -19,18 +19,21 @@ public class HomeActivity extends AppCompatActivity {
     private EditText lutemonName;
     private RadioGroup lutemonType;
     private HomeRecyclerViewAdapter rvAdapter;
-    private final Home home = LocationStorage.getInstance().getHome();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_home);
+        Home home = LocationStorage.getInstance().getHome();
         lutemonName = findViewById(R.id.LutemonNameEdit);
         lutemonType = findViewById(R.id.RadioGroup);
         RecyclerView recyclerView = findViewById(R.id.HomeRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         rvAdapter = new HomeRecyclerViewAdapter(getApplicationContext(), home.getLutemons());
+        for(int key : home.getLutemons().keySet()) {
+            System.out.println(home.getLutemons().get(key).getStats());
+        }
         recyclerView.setAdapter(rvAdapter);
     }
     public void createLutemon(View view){
